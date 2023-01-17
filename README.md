@@ -107,8 +107,8 @@ rubocop
 👤 **Samuel Munyi**
 
 - GitHub: [kene-creator](https://github.com/kene-creator)
-- LinkedIn: [Samuel Munyi](https://www.linkedin.com/in/kenechukwu-agagwu)
-- Twitter: [munyi_sam](https://twitter.com/kay_yung1)
+- LinkedIn: [Kene Agagwu](https://www.linkedin.com/in/kenechukwu-agagwu)
+- Twitter: [Kene](https://twitter.com/kay_yung1)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

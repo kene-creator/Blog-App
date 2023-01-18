@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-    attr_accessor :name :photo :bio :post_counter
+    has_many :comments, foreign_key: 'author_id_id'
+    has_many :posts, foreign_key: 'author_id_id'
+    has_many :likes, foreign_key: 'author_id_id'
 
-    has_many :comments
-    has_many :posts
-    has_many :likes
+    def recent_posts
+        posts.order(created_at: :desc).limit(3)
+    end
 end

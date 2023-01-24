@@ -10,7 +10,6 @@ RSpec.describe UsersController, type: :request do
     )
   end
 
-
   context 'GET #index' do
     before(:example) { get users_path }
 
@@ -21,7 +20,6 @@ RSpec.describe UsersController, type: :request do
     end
 
     context 'index template' do
-
       it 'template placeholder has' do
         expect(response.body).to include('List of users')
       end
@@ -29,7 +27,7 @@ RSpec.describe UsersController, type: :request do
   end
 
   context 'GET #show' do
-    before(:example) { get user_path(user) } 
+    before(:example) { get user_path(user) }
 
     it 'is successful' do
       expect(response).to have_http_status(:ok)

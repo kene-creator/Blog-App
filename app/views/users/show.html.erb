@@ -8,7 +8,7 @@
     <p><%= @user.bio %></p>
   </div>
 
-  <ul>
+  <ul class='user_post'>
     <% @user.posts.first(3).each do |post| %>
         <li>
           <h4><%= link_to post.title, user_posts_path(@user) %></h4>

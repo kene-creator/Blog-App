@@ -37,3 +37,8 @@
   width: 100%;
   justify-content: space-between;
 }
+
+.user_post {
+  list-style: none;
+  border: 1px solid #1212;
+}

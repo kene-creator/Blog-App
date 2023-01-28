@@ -1,20 +1,33 @@
-<div>
-  <div>
-    <h4><%= @post.title %> <%= @post.author.name %></h4>
-    <div>
+<div class='container mb-5 mt-5'>
+  <% if flash[:success] %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong><%= flash[:success] %></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
+  <div class='row card pt-2 pb-2'>
+    <h4 class='lead'><%= @post.title %> by <%= link_to @post.author_id.name, user_path(@post.author_id) %></h4>
+    <div class='d-flex justify-content-end gap-2'>
       <span>Comments: <%= @post.comments_counter %> </span>
-      <span>&nbsp;</span>
       <span> Likes: <%= @post.likes_counter %></span>
     </div>
-    <p><%= @post.text %></p>
-    <ul> 
+    <p class=''><%= @post.text %></p>
+    <div class='card-body border-top'> 
       <%@post.comments.each do |comment| %>
         <li><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
-    </ul>
+    </div>
+
+    <div class='d-flex justify-content-start gap-2'>
+      <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-sm btn-primary' %>
+      <%= form_with url: user_post_likes_path(@post.author_id, @post), method: :post do |f| %>
+        <%= f.submit 'Like', class:'btn btn-sm btn-primary' %>
+      <% end %>
+    </div>
   </div>
 
-  <div>
+  <div class='d-flex justify-content-center align-items-center'>
     <%= link_to 'Back to all', user_posts_path(@user, @post) %>
   </div>
 </div>

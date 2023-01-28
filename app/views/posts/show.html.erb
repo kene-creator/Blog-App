@@ -15,7 +15,7 @@
     <p class=''><%= @post.text %></p>
     <div class='card-body border-top'> 
       <%@post.comments.each do |comment| %>
-        <li><%= comment.author.name %>: <%= comment.text %></li>
+        <li><%= comment.author_id.name %>: <%= comment.text %></li>
       <% end %>
     </div>
 

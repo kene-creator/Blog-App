@@ -17,11 +17,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(**post_params, author_id: current_user.id)
+    @post = Post.create(**post_params, author_id_id: current_user.id)
 
     if @post.save
       flash[:success] = 'Post made successfully'
-      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
+      redirect_to "/users/#{@post.author_id.id}/posts/#{@post.id}"
     else
       flash.now[:error] = 'Error: Post could not be saved'
       render :new, status: :unprocessable_entity

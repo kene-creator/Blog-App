@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     author_id = posted_by
     @user = User.find(author_id)
     @post = Post.where(author_id:).first
-    # @post = Post.includes(:comments).where(id: params[:id], author_id:).order('comments.id DESC').first
   end
 
   def new

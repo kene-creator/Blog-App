@@ -104,7 +104,7 @@ rubocop
 
 ## 👤 Authors <a name="authors"></a>
 
-👤 **Samuel Munyi**
+👤 **Kenechuwkwu Agagwu**
 
 - GitHub: [kene-creator](https://github.com/kene-creator)
 - LinkedIn: [Kene Agagwu](https://www.linkedin.com/in/kenechukwu-agagwu)

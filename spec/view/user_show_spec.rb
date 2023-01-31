@@ -21,6 +21,11 @@ RSpec.describe 'user profile page', type: :system do
     expect(page).to have_selector("img[src*='#{@user1.photo}']")
   end
 
+  it "display link that helps me view all user post" do
+    Capybara.visit "/users/#{@user1.id}"
+    expect(page).to have_link("See all posts")
+  end
+
   it "display the user's name" do
     Capybara.visit "/users/#{@user1.id}"
     expect(page).to have_content(@user1.name)
@@ -31,20 +36,27 @@ RSpec.describe 'user profile page', type: :system do
     expect(page).to have_content("Number of posts: #{@user1.posts_counter}")
   end
 
-  it 'displays theuser\'s bio ' do
+  it 'displays the user\'s bio' do
     Capybara.visit "/users/#{@user1.id}"
     expect(page).to have_content(@user1.bio)
   end
 
-  it 'displays 2 recent posts' do
+  it 'displays 3 recent posts' do
     Capybara.visit "/users/#{@user1.id}"
     expect(page).to have_content(@post1.text)
+    expect(page).to have_content(@post2.text)
     expect(page).to have_content(@post3.text)
   end
 
   it 'should redirect to the users profile page' do
     Capybara.visit "/users/#{@user1.id}"
     click_link('See all posts')
+    expect(page).to have_current_path("/users/#{@user1.id}/posts")
+  end
+
+  it 'should redirect to the post show page' do
+    Capybara.visit "/users/#{@user1.id}"
+    click_link("#{@post1.title}")
     expect(page).to have_current_path("/users/#{@user1.id}/posts")
   end
 end

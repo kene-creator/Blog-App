@@ -6,10 +6,8 @@ RSpec.describe 'Render post index page', type: :system do
                         posts_counter: 0)
     @first_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my first post.', likes_counter: 0,
                               comments_counter: 0)
-    @second_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my second post.', likes_counter: 0,
-                               comments_counter: 0)
     Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @first_post.id)
-    Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @second_post.id)
+    Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @first_post.id)
   end
 
   describe 'index post page' do
@@ -42,5 +40,32 @@ RSpec.describe 'Render post index page', type: :system do
       visit('/users/30/posts/')
       expect(page).to have_content('Likes: 0')
     end
+
+    it "display the user's profile image" do
+      Capybara.visit "/users/#{@user.id}/posts/"
+      expect(page).to have_selector("img[src*='#{@user.photo}']")
+    end
+
+    it "display the user's name" do
+      Capybara.visit "/users/#{@user.id}/posts/"
+      expect(page).to have_content(@user.name)
+    end
+
+    it 'displays number of posts from the user' do
+      Capybara.visit "/users/#{@user.id}/posts/"
+      expect(page).to have_content("Number of posts: #{@user.posts_counter}")
+    end
+
+    it 'displays section for pagination' do
+      Capybara.visit "/users/#{@user.id}/posts/"
+      expect(page).to have_content("Pagination")
+    end
+
+    
+  it 'should redirect to the users profile page' do
+    Capybara.visit "/users/#{@user.id}/posts/"
+    click_link("#{@first_post.title}")
+    expect(page).to have_current_path("/users/#{@user.id}/posts/#{@first_post.id}")
+  end
   end
 end

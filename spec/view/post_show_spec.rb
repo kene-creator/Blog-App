@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'visit the post show page', type: :system do
   before do
-    @user = User.create(id: 30, name: 'Tom', photo: 'https://randomuser.me/api/portraits/men/23.jpg', bio: 'Teacher from Mexico.', posts_counter: 0)
-    @first_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my first post.', likes_counter: 0, comments_counter: 0)
-    @second_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my second post.', likes_counter: 0, comments_counter: 0)
+    @user = User.create(id: 30, name: 'Tom', photo: 'https://randomuser.me/api/portraits/men/23.jpg',
+                        bio: 'Teacher from Mexico.', posts_counter: 0)
+    @first_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my first post.', likes_counter: 0,
+                              comments_counter: 0)
+    @second_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my second post.', likes_counter: 0,
+                               comments_counter: 0)
     Comment.create(post: @first_post, author_id: @user, text: 'Good boy!')
     Comment.create(post: @first_post, author_id: @user, text: 'Good boy!')
     Comment.create(post: @first_post, author_id: @user, text: 'Good boy!')

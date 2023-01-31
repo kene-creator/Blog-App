@@ -2,11 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'user profile page', type: :system do
   before do
-    @user1 = User.create(id: 30, name: 'Tom', photo: 'http://placeimg.com/640/480/any', bio: 'Teacher.', posts_counter: 0)
-    @user2 = User.create(id: 31, name: 'Lilly', photo: 'http://placeimg.com/640/480/any', bio: 'Barista.', posts_counter: 0)
-    @post1 = Post.create(author_id: @user1, title: 'My first post.', text: 'My post description.', comments_counter: 0, likes_counter: 0)
-    @post2 = Post.create(author_id: @user2, title: 'My second post.', text: 'My post description.', comments_counter: 0, likes_counter: 0)
-    @post3 = Post.create(author_id: @user1, title: 'My third post.', text: 'My post description.', comments_counter: 0, likes_counter: 0)
+    @user1 = User.create(id: 30, name: 'Tom', photo: 'http://placeimg.com/640/480/any', bio: 'Teacher.',
+                         posts_counter: 0)
+    @user2 = User.create(id: 31, name: 'Lilly', photo: 'http://placeimg.com/640/480/any', bio: 'Barista.',
+                         posts_counter: 0)
+    @post1 = Post.create(author_id: @user1, title: 'My first post.', text: 'My post description.', comments_counter: 0,
+                         likes_counter: 0)
+    @post2 = Post.create(author_id: @user2, title: 'My second post.', text: 'My post description.',
+                         comments_counter: 0, likes_counter: 0)
+    @post3 = Post.create(author_id: @user1, title: 'My third post.', text: 'My post description.', comments_counter: 0,
+                         likes_counter: 0)
     Comment.create(post: @post1, author_id_id: @user2, text: 'Good boy!')
     Comment.create(post: @post2, author_id_id: @user1, text: 'Good girl!')
   end

@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Render post index page', type: :system do
   before do
-    @user = User.create(id: 30, name: 'Tom', photo: 'http://placeimg.com/640/480/any', bio: 'Teacher from Mexico.', posts_counter: 0)
-    @first_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my first post.', likes_counter: 0, comments_counter: 0)
-    @second_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my second post.', likes_counter: 0, comments_counter: 0)
+    @user = User.create(id: 30, name: 'Tom', photo: 'http://placeimg.com/640/480/any', bio: 'Teacher from Mexico.',
+                        posts_counter: 0)
+    @first_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my first post.', likes_counter: 0,
+                              comments_counter: 0)
+    @second_post = Post.create(author_id: @user, title: 'Hello', text: 'This is my second post.', likes_counter: 0,
+                               comments_counter: 0)
     Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @first_post.id)
     Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @second_post.id)
-    @comment_list = @first_post.recent_comments.each do |comment| comment.text end
+    @comment_list = @first_post.recent_comments.each { |comment| comment.text }
   end
 
   describe 'index post page' do
@@ -27,7 +30,7 @@ RSpec.describe 'Render post index page', type: :system do
     end
 
     it 'display the first comment on a post' do
-      visit("/users/30/posts/")
+      visit('/users/30/posts/')
       expect(page).to have_content('Comments List')
     end
 

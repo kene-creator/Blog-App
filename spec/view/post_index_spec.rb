@@ -58,14 +58,14 @@ RSpec.describe 'Render post index page', type: :system do
 
     it 'displays section for pagination' do
       Capybara.visit "/users/#{@user.id}/posts/"
-      expect(page).to have_content("Pagination")
+      expect(page).to have_content('Pagination')
     end
 
-    
-  it 'should redirect to the users profile page' do
-    Capybara.visit "/users/#{@user.id}/posts/"
-    click_link("#{@first_post.title}")
-    expect(page).to have_current_path("/users/#{@user.id}/posts/#{@first_post.id}")
-  end
+
+    it 'should redirect to the users profile page' do
+      Capybara.visit "/users/#{@user.id}/posts/"
+      click_link("#{@first_post.title}")
+      expect(page).to have_current_path("/users/#{@user.id}/posts/#{@first_post.id}")
+    end
   end
 end

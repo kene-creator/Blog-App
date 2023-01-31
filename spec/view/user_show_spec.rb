@@ -21,9 +21,9 @@ RSpec.describe 'user profile page', type: :system do
     expect(page).to have_selector("img[src*='#{@user1.photo}']")
   end
 
-  it "display link that helps me view all user post" do
+  it 'display link that helps me view all user post' do
     Capybara.visit "/users/#{@user1.id}"
-    expect(page).to have_link("See all posts")
+    expect(page).to have_link('See all posts')
   end
 
   it "display the user's name" do

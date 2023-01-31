@@ -10,7 +10,6 @@ RSpec.describe 'Render post index page', type: :system do
                                comments_counter: 0)
     Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @first_post.id)
     Comment.create(text: 'Good boy!', author_id_id: @user, post_id: @second_post.id)
-    @comment_list = @first_post.recent_comments.each { |comment| comment.text }
   end
 
   describe 'index post page' do

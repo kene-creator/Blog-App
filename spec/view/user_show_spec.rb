@@ -56,7 +56,7 @@ RSpec.describe 'user profile page', type: :system do
 
   it 'should redirect to the post show page' do
     Capybara.visit "/users/#{@user1.id}"
-    click_link("#{@post1.title}")
+    click_link(@post1.title.to_s)
     expect(page).to have_current_path("/users/#{@user1.id}/posts")
   end
 end

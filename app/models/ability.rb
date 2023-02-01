@@ -12,6 +12,7 @@ class Ability
       # can :manage, :all
       can :manage, Post
       can [:create, :read, :update, :destroy], Post if user.role == "admin"
+      can [:create, :read, :update, :destroy], Comment if user.role == "admin"
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

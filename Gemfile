@@ -59,6 +59,9 @@ gem 'letter_opener'
 # Devise bootstrap
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
+#Authorizatin with CanCanCan
+gem 'cancancan'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

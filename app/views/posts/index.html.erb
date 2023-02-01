@@ -21,7 +21,7 @@
         <h5>Comments List</h5>
 
         <%post.recent_comments.each do |comment| %>
-          <div><%= comment.author.name %>: <%= comment.text %></div>
+          <div><%= comment.author_id.name %>: <%= comment.text %></div>
         <% end %>
       </div>
     </div>

@@ -104,11 +104,22 @@ rubocop
 
 ## 👤 Authors <a name="authors"></a>
 
-👤 **Samuel Munyi**
+👤 **Kenechuwkwu Agagwu**
 
 - GitHub: [kene-creator](https://github.com/kene-creator)
 - LinkedIn: [Kene Agagwu](https://www.linkedin.com/in/kenechukwu-agagwu)
 - Twitter: [Kene](https://twitter.com/kay_yung1)
+
+👤 **Emre Karayaman**
+
+- GitHub: [@karayamanemre](https://github.com/karayamanemre)
+- Twitter: [@KarayamanEmre](https://twitter.com/KarayamanEmre)
+- LinkedIn: [Emre Karayaman](https://www.linkedin.com/in/emre-karayaman-a7b45b243/)
+
+👤 **Natanim Abesha**
+
+- GitHub: [@githubhandle](https://github.com/NatanimA)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/natanim-abesha)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

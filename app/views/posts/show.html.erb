@@ -17,6 +17,9 @@
     <div class='card-body border-top'> 
       <%@post.comments.each do |comment| %>
         <li><%= comment.author_id.name %>: <%= comment.text %></li>
+        <% if can? :destroy, comment %>
+      <%= button_to "Delete",user_post_path(@user,comment), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
+      <% end %>
       <% end %>
     </div>
 <% end %>

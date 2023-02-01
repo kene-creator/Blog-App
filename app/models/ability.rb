@@ -8,8 +8,10 @@ class Ability
     #
     #   return unless user.present?
     #   can :read, :all
-    #   return unless user.admin?
-    #   can :manage, :all
+      return unless user.role === "admin"
+      # can :manage, :all
+      can :manage, Post
+      can [:create, :read, :update, :destroy], Post if user.role == "admin"
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

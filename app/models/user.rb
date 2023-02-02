@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
-  ROLES = %w{admin default}
+  ROLES = %w[admin default].freeze
 
   def recent_posts
     posts.order(created_at: :desc).limit(3)

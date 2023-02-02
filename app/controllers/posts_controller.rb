@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to "/users/#{@post.author_id.id}/posts/", notice: "Post was successfully deleted."
+    redirect_to "/users/#{@post.author_id.id}/posts/", notice: 'Post was successfully deleted.'
   end
 
   private

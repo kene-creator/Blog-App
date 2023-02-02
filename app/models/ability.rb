@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -8,11 +6,12 @@ class Ability
     #
     #   return unless user.present?
     #   can :read, :all
-      return unless user.role === "admin"
-      # can :manage, :all
-      can :manage, Post
-      can [:create, :read, :update, :destroy], Post if user.role == "admin"
-      can [:create, :read, :update, :destroy], Comment if user.role == "admin"
+    return unless user.role === 'admin'
+
+    # can :manage, :all
+    can :manage, Post
+    can %i[create read update destroy], Post if user.role == 'admin'
+    can %i[create read update destroy], Comment if user.role == 'admin'
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

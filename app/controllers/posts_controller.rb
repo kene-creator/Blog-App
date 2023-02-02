@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     author_id = posted_by
     @user = User.includes(:posts, :comments).find(author_id)
     @posts = Post.includes(:author_id).where(author_id:)
+    @comments = Comment.includes(:author_id).where(author_id:)
   end
 
   def show

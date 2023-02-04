@@ -12,6 +12,9 @@
     <div class='row card pt-2 pb-2 mb-3 mt-4'>
       <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
       <p><%= post.text %></p>
+      <% if can? :destroy, post %>
+      <%= button_to "Delete",user_post_path(@user,post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
+      <% end %>
       <div class='d-flex justify-content-end gap-2'>
         <span>Comments: <%= post.comments_counter %> </span>
         <span> Likes: <%= post.likes_counter %></span>
@@ -22,6 +25,9 @@
 
         <%post.recent_comments.each do |comment| %>
           <div><%= comment.author_id.name %>: <%= comment.text %></div>
+             <% if can? :destroy, comment %>
+      <%= button_to "Delete",user_post_comment_path(@user, comment, post.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
+      <% end %>
         <% end %>
       </div>
     </div>
